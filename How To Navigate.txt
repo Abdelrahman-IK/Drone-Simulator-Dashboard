@@ -1,0 +1,8 @@
+W for acceleration
+S for deceleration
+A for Left Yaw
+D for right Yaw
+Arrow Up for Pitch UP
+Arrow Down for Pitch Down
+Arrow Right for Roll Right
+Arrow Left for Roll Left

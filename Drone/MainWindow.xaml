@@ -1,0 +1,127 @@
+﻿<Window
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Drone"
+        xmlns:telerik="http://schemas.telerik.com/2008/xaml/presentation" xmlns:WPF="clr-namespace:Microsoft.Maps.MapControl.WPF;assembly=Microsoft.Maps.MapControl.WPF" KeyDown="OnKeyDownHandler"
+        x:Class="Drone.MainWindow"
+        mc:Ignorable="d"
+        Title="Simulator" Height="760" Width="1366" Icon="Media/logo_100.png" WindowState="Maximized" ResizeMode="CanMinimize" >
+    <Grid Background="#FF212121">
+        <Image x:Name="image4" Margin="22,16,0,0" Source="Media/texture.png" Stretch="Fill" RenderTransformOrigin="0.5,0.5" Height="198.653" VerticalAlignment="Top" HorizontalAlignment="Left" Width="653.208">
+            <Image.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform/>
+                    <RotateTransform Angle="0"/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </Image.RenderTransform>
+        </Image>
+        <Image x:Name="image" HorizontalAlignment="Left" Height="126.866" Margin="76.097,51.204,0,0" VerticalAlignment="Top" Width="129.897" Source="Media/frame.png"/>
+        <telerik:RadRadialGauge x:Name="airspeed_gauge"  HorizontalAlignment="Left" Margin="66.571,57.698,0,0" VerticalAlignment="Top" Height="113.444" Width="147.217" InnerBackground="#FF191919" OuterBackground="Black" Foreground="White" OuterBorderBrush="Black">
+            <telerik:RadialScale Min="0" Max="800" Foreground="White" FontSize="9">
+                <telerik:RadialScale.Indicators>
+                    <telerik:Needle x:Name="airspeed_value" Foreground="White" Background="White"/>
+                    <telerik:Pinpoint Foreground="White"/>
+                </telerik:RadialScale.Indicators>
+                <telerik:GaugeRange Background="Red" Min="700" Max="800"/>
+                <telerik:GaugeRange Background="Yellow" Min="400" Max="700"/>
+                <telerik:GaugeRange Background="Green" Min="100" Max="400"/>
+            </telerik:RadialScale>
+            <TextBlock x:Name="textBlock" HorizontalAlignment="Left" Margin="40.666,72.715,0,0" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="8"><Run Text="Air Speed"/></TextBlock>
+        </telerik:RadRadialGauge>
+        <Rectangle Fill="Black" Height="153.291" Margin="518.587,34.023,0,0" Stroke="#00000000" VerticalAlignment="Top" d:LayoutOverrides="VerticalAlignment" HorizontalAlignment="Left" Width="82.655"/>
+        <Rectangle Fill="#FF3FE7F7" Height="69.723" Margin="527.414,43.819,0,0" Stroke="#00000000" VerticalAlignment="Top" d:LayoutOverrides="VerticalAlignment" HorizontalAlignment="Left" Width="62.809"/>
+        <Rectangle Fill="#FF3E200B" Height="63.22" Margin="527.414,113.542,0,0" Stroke="#00000000" VerticalAlignment="Top" d:LayoutOverrides="VerticalAlignment" HorizontalAlignment="Left" Width="62.809"/>
+        <telerik:RadVerticalLinearGauge telerik:StyleManager.Theme="Windows8" Margin="527.414,43.819,758.758,0" Background="Transparent" Height="136.526" VerticalAlignment="Top">
+
+            <telerik:VerticalLinearScale Min="-80" Max="80"
+				MajorTicks="5"
+				IsInteractive="True"
+				RangeLocation="Inside"
+				MajorTickOffset="0.05*"
+				MiddleTickOffset="0.0*"
+				MinorTickOffset="0.02*" FontSize="12">
+
+                <telerik:VerticalLinearScale.Indicators>
+                    <telerik:Marker x:Name="pitch_angle" Value="0" 
+						telerik:ScaleObject.RelativeHeight="0.05*"
+						telerik:ScaleObject.RelativeWidth="0.12*"/>
+                </telerik:VerticalLinearScale.Indicators>
+            </telerik:VerticalLinearScale>
+        </telerik:RadVerticalLinearGauge>
+        <Image x:Name="image1" HorizontalAlignment="Left" Height="126.606" Margin="216.5,51.049,0,0" VerticalAlignment="Top" Width="129.585" Source="Media/frame.png" Stretch="Fill"/>
+        <Image x:Name="image2" HorizontalAlignment="Left" Height="127.637" Margin="225.064,56.8,0,0" VerticalAlignment="Top" Width="113.946" Source="Media/horizon.png"/>
+        <Image x:Name="aircraft" HorizontalAlignment="Left" Height="23.831" Margin="244.179,93.749,0,0" VerticalAlignment="Top" Width="74.475" Source="Media/aircraft.png" RenderTransformOrigin="0.5,0.5"/>
+        <TextBlock x:Name="textBlock_Copy" HorizontalAlignment="Left" TextWrapping="Wrap" Text="Roll Angle" VerticalAlignment="Top" FontSize="10.667" d:LayoutOverrides="HorizontalAlignment, VerticalAlignment" Margin="258.164,143.355,0,0" Foreground="White" Height="13.565" Width="50.49"/>
+        <TextBlock x:Name="textBlock_Copy1" HorizontalAlignment="Left" TextWrapping="Wrap" Text="Pitch Angle" VerticalAlignment="Top" FontSize="8" Margin="536.809,175.803,0,0" Foreground="White" d:LayoutOverrides="HorizontalAlignment, VerticalAlignment"/>
+        <Image x:Name="image3" HorizontalAlignment="Left" Margin="357.966,49.619,0,0" Width="131.048" Height="128.036" VerticalAlignment="Top" Source="Media/frame.png" Stretch="Fill" d:LayoutOverrides="VerticalAlignment"/>
+        <telerik:RadQuadrantNWGauge Width="80.136" telerik:StyleManager.Theme="Windows8" HorizontalAlignment="Left" Margin="383.84,58.575,0,0" RenderTransformOrigin="0.5,0.5" OuterBackground="#FF3A3C39" Height="80.136" VerticalAlignment="Top">
+            <telerik:RadQuadrantNWGauge.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform/>
+                    <RotateTransform Angle="46.742"/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </telerik:RadQuadrantNWGauge.RenderTransform>
+            <telerik:QuadrantNWScale  Min="-1" Max="1" MajorTickStep="1" Foreground="White">
+                <telerik:QuadrantNWScale.Indicators>
+                    <telerik:Needle x:Name="yaw_sensor" IsAnimated="True" Value="0" />
+                    <telerik:Pinpoint />
+                </telerik:QuadrantNWScale.Indicators>
+            </telerik:QuadrantNWScale>
+        </telerik:RadQuadrantNWGauge>
+        <Image x:Name="image5" Margin="22,218.153,0,10" Source="Media/texture.png" Stretch="Fill" HorizontalAlignment="Left" Width="653.208"/>
+        <Rectangle Fill="Black" Stroke="#FF2C2D2E" Margin="87.097,273.653,0,39.187" StrokeThickness="5" HorizontalAlignment="Left" Width="514.145"/>
+        <WPF:Map x:Name="map" HorizontalAlignment="Left" Mode="AerialWithLabels" Center="30.0201587,31.2095643" ZoomLevel="12" Margin="96,284,0,0" VerticalAlignment="Top" Width="494" Height="407.813" CredentialsProvider="AkQWg6L66ntGTpth2DAk6bp5C8yYZ9vzenybV3YbAlreVb1M9R6G6bfUTDkWcy5t">
+            <WPF:Pushpin x:Name="aircraft_pushpin" Location="30.0201587,31.2095643" Content="A" />
+        </WPF:Map>
+        <TextBlock x:Name="textBlock_Copy2" HorizontalAlignment="Left" TextWrapping="Wrap" Text="Yaw Angle" VerticalAlignment="Top" FontSize="10.667" Margin="398,150.955,0,0" Foreground="White" d:LayoutOverrides="HorizontalAlignment, VerticalAlignment"/>
+        <Grid Margin="574.208,122,285.792,317.552" RenderTransformOrigin="0.5,0.5">
+            <Grid.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform/>
+                    <RotateTransform Angle="90"/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </Grid.RenderTransform>
+            <Grid.Background>
+                <ImageBrush ImageSource="Media/texture.png"/>
+            </Grid.Background>
+            <Rectangle Fill="Black" Margin="50.276,38.932,65.724,28.516" Stroke="#FF2C2D2E" StrokeThickness="5"/>
+            <TextBlock x:Name="textBlock1" Margin="-64,136,0,117.118" TextWrapping="Wrap" Text="Weather Data" Foreground="#FF06B927" FontSize="33.333" FontFamily="Times New Roman" TextAlignment="Center" RenderTransformOrigin="0.5,0.5" HorizontalAlignment="Left" Width="284" d:LayoutOverrides="Height">
+                <TextBlock.RenderTransform>
+                    <TransformGroup>
+                        <ScaleTransform/>
+                        <SkewTransform/>
+                        <RotateTransform Angle="-90"/>
+                        <TranslateTransform/>
+                    </TransformGroup>
+                </TextBlock.RenderTransform>
+            </TextBlock>
+            <TextBlock x:Name="weather_data_txt" Margin="170,-2.337,126,-4" TextWrapping="Wrap" Foreground="#FF06B927" FontSize="18.667" FontFamily="Times New Roman" RenderTransformOrigin="0.5,0.5">
+                <TextBlock.RenderTransform>
+                    <TransformGroup>
+                        <ScaleTransform/>
+                        <SkewTransform/>
+                        <RotateTransform Angle="-90"/>
+                        <TranslateTransform/>
+                    </TransformGroup>
+                </TextBlock.RenderTransform><Run Text="Temp                     15`"/><LineBreak/><Run Text="Humidity               5%"/><LineBreak/><Run Text="Air Speed              20 KM"/><LineBreak/><Run Text="Wind direction       N`"/><LineBreak/><Run Text="Dew Point             2.213"/><LineBreak/><Run Text="Pressure                 3236 P"/><LineBreak/><Run Text="Visibility                0"/><LineBreak/><Run Text="Guest Speed           12 KM"/></TextBlock>
+        </Grid>
+        <TextBlock x:Name="textBlock3" HorizontalAlignment="Left" Margin="276.654,21.622,0,0" TextWrapping="Wrap" Text="Drone Controls" VerticalAlignment="Top" Foreground="White" FontSize="20" FontFamily="Times New Roman"/>
+        <TextBlock x:Name="textBlock3_Copy" HorizontalAlignment="Left" Margin="253.653,242.656,0,0" TextWrapping="Wrap" Text="Drone Location on Map" VerticalAlignment="Top" Foreground="White" FontSize="20" FontFamily="Times New Roman"/>
+        <Rectangle Fill="Black" Height="202" Margin="680,0,4,6" Stroke="#FF2C2D2E" StrokeThickness="5" VerticalAlignment="Bottom"/>
+        <TextBlock x:Name="textBlock1_Copy" Margin="697,0,543,169" TextWrapping="Wrap" Text="Drone Logs" Foreground="#FF06B927" FontSize="24" FontFamily="Times New Roman" RenderTransformOrigin="0.5,0.5" VerticalAlignment="Bottom"/>
+        <TextBox x:Name="Drone_logs_txt"   Margin="0,0,22,39" TextWrapping="Wrap" VerticalScrollBarVisibility="auto" AcceptsReturn="true" Text="Drone Logs" Foreground="#FF06B927"  FontSize="13.333" FontFamily="Times New Roman" RenderTransformOrigin="0.5,0.5" VerticalAlignment="Bottom" Height="126" Background="Black" HorizontalAlignment="Right" Width="633"/>
+        <Rectangle Fill="Black" Margin="983,22.62,16,222.551" Stroke="#FF2C2D2E" StrokeThickness="5"/>
+        <TextBlock x:Name="textBlock1_Copy1" Margin="995.079,34.023,237.839,0" TextWrapping="Wrap" Text="Service Logs" Foreground="#FF06B927" FontSize="24" FontFamily="Times New Roman" RenderTransformOrigin="0.5,0.5" VerticalAlignment="Top" Height="37.873"/>
+        <TextBox x:Name="Service_Logs_txt"   Margin="0,77,22,238" TextWrapping="Wrap" VerticalScrollBarVisibility="auto" AcceptsReturn="true" Text="Service Logs" Foreground="#FF06B927"  FontSize="13.333" FontFamily="Times New Roman" RenderTransformOrigin="0.5,0.5" Background="Black" HorizontalAlignment="Right" Width="343"/>
+        <Rectangle x:Name="map_warning_rec" Fill="#FFE80D0D" HorizontalAlignment="Left" Stroke="Black" Width="169.722" Margin="258.164,295,0,0" Height="55" VerticalAlignment="Top" StrokeThickness="0"/>
+        <TextBlock x:Name="map_warning_txt" HorizontalAlignment="Left" Margin="258,310,0,0" TextWrapping="Wrap" Text="BAD WEATHER ZONE" VerticalAlignment="Top" Foreground="White" FontSize="16" TextAlignment="Center" Width="170" Height="33"/>
+    </Grid>
+</Window>
